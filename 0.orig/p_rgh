@@ -1,0 +1,47 @@
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    object      p_rgh;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [1 -1 -2 0 0 0 0];
+internalField   uniform 2620000;
+
+boundaryField
+{
+    inlet
+    {
+        type            fixedFluxPressure;
+        value           uniform 2620000;
+    }
+    outlet
+    {
+        type            fixedValue;
+        value           uniform 2620000;
+    }
+    unheated_wall
+    {
+        type            fixedFluxPressure;
+        value           uniform 2620000;
+    }
+    heated_wall
+    {
+        type            fixedFluxPressure;
+        value           uniform 2620000;
+    }
+    axis
+    {
+        type            empty;
+    }
+    front
+    {
+        type            wedge;
+    }
+    back
+    {
+        type            wedge;
+    }
+}

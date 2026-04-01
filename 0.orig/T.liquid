@@ -1,0 +1,49 @@
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    object      T.liquid;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 0 0 1 0 0 0];
+internalField   uniform 341.67;
+
+boundaryField
+{
+    inlet
+    {
+        type            fixedValue;
+        value           uniform 341.67;
+    }
+    outlet
+    {
+        type            inletOutlet;
+        inletValue      uniform 341.67;
+        value           uniform 341.67;
+    }
+    unheated_wall
+    {
+        type            zeroGradient;
+    }
+    heated_wall
+    {
+        // Multiphase heat flux applied directly to the continuous phase
+        type            fixedMultiPhaseHeatFlux;
+        q               uniform 73890; 
+        value           uniform 341.67;
+    }
+    axis
+    {
+        type            empty;
+    }
+    front
+    {
+        type            wedge;
+    }
+    back
+    {
+        type            wedge;
+    }
+}

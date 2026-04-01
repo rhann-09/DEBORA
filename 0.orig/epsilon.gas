@@ -1,0 +1,48 @@
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    object      epsilon.gas;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 2 -3 0 0 0 0];
+internalField   uniform 0.2;
+
+boundaryField
+{
+    inlet
+    {
+        type            fixedValue;
+        value           uniform 0.2;
+    }
+    outlet
+    {
+        type            inletOutlet;
+        inletValue      uniform 0.2;
+        value           uniform 0.2;
+    }
+    unheated_wall
+    {
+        type            epsilonWallFunction;
+        value           uniform 0.2;
+    }
+    heated_wall
+    {
+        type            epsilonWallFunction;
+        value           uniform 0.2;
+    }
+    axis
+    {
+        type            empty;
+    }
+    front
+    {
+        type            wedge;
+    }
+    back
+    {
+        type            wedge;
+    }
+}

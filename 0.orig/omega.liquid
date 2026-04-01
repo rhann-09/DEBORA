@@ -1,0 +1,49 @@
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    object      omega.liquid;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 0 -1 0 0 0 0];
+internalField   uniform 160;
+
+boundaryField
+{
+    inlet
+    {
+        type            turbulentMixingLengthFrequencyInlet;
+        mixingLength    0.001344; // 7% of 19.2mm
+        value           uniform 160;
+    }
+    outlet
+    {
+        type            inletOutlet;
+        inletValue      uniform 160;
+        value           uniform 160;
+    }
+    unheated_wall
+    {
+        type            omegaWallFunction;
+        value           uniform 160;
+    }
+    heated_wall
+    {
+        type            omegaWallFunction;
+        value           uniform 160;
+    }
+    axis
+    {
+        type            empty;
+    }
+    front
+    {
+        type            wedge;
+    }
+    back
+    {
+        type            wedge;
+    }
+}
