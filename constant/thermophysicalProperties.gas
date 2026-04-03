@@ -21,10 +21,10 @@ thermoType
     type            heRhoThermo;
     mixture         pureMixture;
     transport       const;
-    thermo          hRefConst;
+    thermo          hConst;
     equationOfState rhoConst;
     specie          specie;
-    energy          sensibleInternalEnergy;
+    energy          sensibleEnthalpy;
 }
 
 mixture
@@ -42,7 +42,7 @@ mixture
         Hf          0;
         Cp          1200.7;  // https://doi.org/10.3390/en16134996  J/(kg*K)
         Tref        358;  // https://www.engineeringtoolbox.com/dichlorodifluoromethane-R-12-d_972.html K
-        Eref        213040;  // https://www.engineeringtoolbox.com/dichlorodifluoromethane-R-12-d_972.html J/kg
+        Href        213040;  // https://www.engineeringtoolbox.com/dichlorodifluoromethane-R-12-d_972.html J/kg
     }
     transport
     {
