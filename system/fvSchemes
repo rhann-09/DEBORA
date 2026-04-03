@@ -35,8 +35,8 @@ divSchemes
     "div\(phi.*,U.*\)"              Gauss limitedLinearV 1;
 
     "div\(alphaRhoPhi.*,Yi\)"       Gauss limitedLinear 1;
-    "div\(alphaRhoPhi.*,(h|e).*\)"  Gauss limitedLinear 1;
-    "div\(alphaRhoPhi.*,K.*\)"      Gauss limitedLinear 1;
+    "div\(alphaRhoPhi.*,(h|e).*\)"  Gauss upwind; // Gauss limitedLinear 1;
+    "div\(alphaRhoPhi.*,K.*\)"      Gauss upwind; // Gauss limitedLinear 1;
     "div\(alphaPhi.*,p\)"           Gauss limitedLinear 1;
 
     "div\(alphaRhoPhi.*,(k|epsilon|omega).*\)"  Gauss upwind;
