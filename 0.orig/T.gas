@@ -7,6 +7,9 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+// temperature
+// Matches https://doi.org/10.3390/en16134996 Table 4. using saturation temperature DEBORA 1
+
 dimensions      [0 0 0 1 0 0 0];
 internalField   uniform 359.98;
 
@@ -29,7 +32,9 @@ boundaryField
     }
     heated_wall
     {
-        type            zeroGradient;
+		type            copiedFixedValue;
+        sourceFieldName T.liquid;
+        value           uniform 341.67; // Matches https://doi.org/10.3390/en16134996 Table 4. using inlet temperature DEBORA 1
     }
     axis
     {

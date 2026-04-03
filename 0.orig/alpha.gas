@@ -14,6 +14,9 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+// Setup: Matches https://doi.org/10.3390/en16134996 Table 4.
+// alpha: volume fraction
+
 dimensions      [0 0 0 0 0 0 0];
 internalField   uniform 0;
 

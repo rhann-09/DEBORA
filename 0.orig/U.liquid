@@ -7,8 +7,12 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+// velocity
+
 dimensions      [0 1 -1 0 0 0 0];
 internalField   uniform (1.9638 0 0);
+
+// Matches https://doi.org/10.3390/en16134996 Table 4.
 
 boundaryField
 {

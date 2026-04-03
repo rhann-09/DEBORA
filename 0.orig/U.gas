@@ -7,6 +7,12 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+// velocity 
+// radius = 0.0096m, area = 0.000289529178955 m^2, density = 1016.4 kg/m^3, mass flux = 1996 kg/(m^2*s)
+// mdot = rho * A * v -> 1.9638 m/s
+
+// Matches https://doi.org/10.3390/en16134996 Table 4.
+
 dimensions      [0 1 -1 0 0 0 0];
 internalField   uniform (1.9638 0 0);
 

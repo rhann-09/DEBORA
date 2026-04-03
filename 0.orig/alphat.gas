@@ -14,6 +14,9 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+// alphat: turbulent thermal diffusivity
+// Ref: Material_PaperCHT & https://doi.org/10.3390/en16134996 Table 4 except wall, wall must be calculated to run
+
 dimensions      [1 -1 -1 0 0 0 0];
 internalField   uniform 0;
 

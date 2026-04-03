@@ -7,32 +7,50 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+// Specific turbulence dissipation 1/s
+
+// Matches https://doi.org/10.3390/en16134996 Tables 4
+
+// https://www.cfd-online.com/Tools/turbulence.php
+// Use the online CFD calculator with the following data:
+// Uinf = 1.9638 m/s 
+// Kinematic viscosity = μ/ρ = 8.9402e-05 / 1016.4 = 8.7959464777646595828414010232192e-8  m^2/s
+// Turbulent intensity = 5 %
+// Turbulent length l = 0.038 * hydraulic diameter
+// l = 0.038 * 0.0192 = 0.0007296 m https://www.cfd-online.com/Wiki/Turbulence_length_scale
+// k = 0.0023139062640000004
+// epsilon = 0.013730183034360365
+// omega = 65.93075598790578
+
 dimensions      [0 0 -1 0 0 0 0];
-internalField   uniform 160;
+internalField   uniform 65.9;
 
 boundaryField
 {
-    inlet
+	inlet
     {
-        type            turbulentMixingLengthFrequencyInlet;
-        mixingLength    0.001344; // 7% of 19.2mm
-        value           uniform 160;
+        type            fixedValue;
+        value           uniform 65.9;
     }
     outlet
     {
         type            inletOutlet;
-        inletValue      uniform 160;
-        value           uniform 160;
+        inletValue      uniform 65.9;
+        value           uniform 65.9;
     }
     unheated_wall
     {
         type            omegaWallFunction;
-        value           uniform 160;
+		kName           k.liquid;
+        nutName         nut.liquid;
+        value           uniform 65.9;
     }
     heated_wall
     {
         type            omegaWallFunction;
-        value           uniform 160;
+		kName           k.liquid;
+        nutName         nut.liquid;
+        value           uniform 65.9;
     }
     axis
     {

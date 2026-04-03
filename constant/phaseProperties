@@ -20,26 +20,29 @@ phases          (gas liquid);
 
 phaseChange on;
 
+
+// Ref: Material_PaperCHT
 gas
 {
     type            purePhaseModel;
     diameterModel   constant;
     constantCoeffs
     {
-        d                0.0003; 
+        d                0.00045; 
     }
     Sc              0.7;
 
     residualAlpha   1e-4;
 }
 
+// Ref: Material_PaperCHT
 liquid
 {
     type            purePhaseModel;
     diameterModel   constant;
     constantCoeffs
     {
-        d               0.0006; 
+        d               0.00045; 
     }
     Sc              0.7;
 
@@ -84,13 +87,13 @@ aspectRatio
     (gas in liquid)
     {
         type            constant;
-        E0              0.01777207997368;
+        E0              0.9999; // sphereical bubbles
     }
 
     (liquid in gas)
     {
         type            constant;
-        E0               0.07108831989474; 
+        E0               0.9999; // sphereical bubbles
     }
 );
 

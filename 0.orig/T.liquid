@@ -7,6 +7,9 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+// temperature
+// Matches https://doi.org/10.3390/en16134996 Table 4. using inlet temperature
+
 dimensions      [0 0 0 1 0 0 0];
 internalField   uniform 341.67;
 
@@ -29,9 +32,10 @@ boundaryField
     }
     heated_wall
     {
-        // Multiphase heat flux applied directly to the continuous phase
-        type            fixedMultiPhaseHeatFlux;
-        q               uniform 73890; 
+		// Matches https://doi.org/10.3390/en16134996 Table 4. DEBORA 1
+        type            fixedMultiPhaseHeatFlux; 
+        // q               uniform 73890;  // vapour development
+		q               uniform 0;   // flow field development
         value           uniform 341.67;
     }
     axis

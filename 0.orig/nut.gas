@@ -7,6 +7,8 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+// turbulent viscosity
+
 dimensions      [0 2 -1 0 0 0 0];
 internalField   uniform 0;
 
@@ -25,11 +27,13 @@ boundaryField
     unheated_wall
     {
         type            nutkWallFunction;
+		kName           k.gas;
         value           uniform 0;
     }
     heated_wall
     {
         type            nutkWallFunction;
+		kName           k.gas;
         value           uniform 0;
     }
     axis

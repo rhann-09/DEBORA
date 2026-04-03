@@ -14,12 +14,14 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+// Setup: Matches https://doi.org/10.3390/en16134996 Tables 3 and 4, suggests hRefConst
+
 thermoType
 {
     type            heRhoThermo;
     mixture         pureMixture;
     transport       const;
-    thermo          eConst;
+    thermo          hRefConst;
     equationOfState rhoConst;
     specie          specie;
     energy          sensibleInternalEnergy;
@@ -29,7 +31,7 @@ mixture
 {
     specie
     {
-        molWeight       18.0153;
+        molWeight       120.93;
     }
     equationOfState
     {
@@ -38,14 +40,14 @@ mixture
     thermodynamics
     {
         Hf          0;
-        Cv          1200.7;
-        Tref        373.55;
-        Eref        2675500;
+        Cp          1200.7;  // https://doi.org/10.3390/en16134996  J/(kg*K)
+        Tref        358;  // https://www.engineeringtoolbox.com/dichlorodifluoromethane-R-12-d_972.html K
+        Eref        213040;  // https://www.engineeringtoolbox.com/dichlorodifluoromethane-R-12-d_972.html J/kg
     }
     transport
     {
-        mu          1.2256e-5;
-        Pr          2.289;
+        mu          1.6391e-05;  //  dynamic viscosity Pa*s https://webbook.nist.gov/cgi/cbook.cgi?ID=C75718&Mask=1F
+        Pr          1.128;   // Prandtl number Pr=cp*mu/k, k = 0.018 
     }
 }
 
